@@ -1,0 +1,101 @@
+             <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-semibold text-slate-900 mb-2 leading-tight group-hover:text-primary transition-colors">Access Prescription Management 24/7</h3>
+                <p className="text-xs sm:text-sm lg:text-base text-slate-600 mb-4 flex-grow leading-relaxed">
+                  Track all your medications in one place. View status, refill counts, and prescription details. Your health information is protected with enterprise-grade security and HIPAA compliance.
+                </p>
+                <Button
+                  onClick={handleLogin}
+                  className="w-full bg-primary text-white hover:bg-red-900 active:bg-red-800 h-11 sm:h-12 text-xs sm:text-sm lg:text-base min-h-[44px] font-medium shadow-lg hover:shadow-xl active:shadow-sm transition-all duration-300 hover:scale-105"
+                  size="lg"
+                >
+                  Access Prescriptions
+                </Button>
+              </div>
+
+            <div className="bg-white rounded-xl p-3 sm:p-4 lg:p-6 shadow-sm border border-slate-200 flex flex-col h-full">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-secondary/10 rounded-full flex items-center justify-center mb-3">
+                <Clock className="text-secondary h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+              </div>
+              <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-semibold text-slate-900 mb-2 leading-tight">Quick Refills</h3>
+              <p className="text-xs sm:text-sm lg:text-base text-slate-600 mb-4 flex-grow leading-relaxed">
+                Request prescription refills online with just a few clicks. Choose pickup or delivery options.
+              </p>
+              <Button
+                onClick={handleLogin}
+                className="w-full bg-primary text-white hover:bg-red-900 active:bg-red-800 h-11 sm:h-12 text-xs sm:text-sm lg:text-base min-h-[44px] font-medium shadow-lg active:shadow-sm transition-all duration-150"
+                size="lg"
+              >
+                Start Refill
+              </Button>
+            </div>
+
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-slate-200 flex flex-col h-full">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-warning/10 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <ArrowRight className="text-warning h-5 w-5 sm:h-6 sm:w-6" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2 sm:mb-3">Easy Transfers</h3>
+              <p className="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6 flex-grow">
+                Transfer prescriptions from other pharmacies seamlessly. We handle the paperwork.
+              </p>
+              <Button
+                onClick={handleLogin}
+                className="w-full bg-primary text-white hover:bg-red-900 h-11 sm:h-12 text-sm sm:text-base min-h-[44px]"
+                size="lg"
+              >
+                Transfer Prescription
+              </Button>
+            </div>
+
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-slate-200 flex flex-col h-full">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-success/10 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <Users className="text-success h-5 w-5 sm:h-6 sm:w-6" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2 sm:mb-3">Live Support</h3>
+              <p className="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6 flex-grow">
+                Chat directly with our pharmacy team for questions, consultations, and support.
+              </p>
+              <Button
+                onClick={handleLogin}
+                className="w-full bg-primary text-white hover:bg-red-900 h-11 sm:h-12 text-sm sm:text-base min-h-[44px]"
+                size="lg"
+              >
+                Start Chat
+              </Button>
+            </div>
+
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-slate-200 flex flex-col h-full">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <Shield className="text-primary h-5 w-5 sm:h-6 sm:w-6" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2 sm:mb-3">Vaccination and Clinical Hub</h3>
+              <p className="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6 flex-grow">
+                All your vaccines and clinical testing given with care. Immunizations for Flu, MMR, Tdap, HepB and more. Testing for COVID, Flu, and more. 
+                See Our List (WALK IN Appointments Available)
+              </p>
+              <Button
+                onClick={handleLogin}
+                className="w-full bg-primary text-white hover:bg-red-900 h-11 sm:h-12 text-sm sm:text-base min-h-[44px]"
+                size="lg"
+              >
+                Book Appointment
+              </Button>
+            </div>
+
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-slate-200 flex flex-col h-full">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <Car className="text-secondary h-5 w-5 sm:h-6 sm:w-6" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2 sm:mb-3">Delivery to your doorstep</h3>
+              <p className="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6 flex-grow">
+                Choose from our convenient FREE delivery and pickup options: Home Delivery, Curbside Pickup, In-Store Pickup
+              </p>
+              <Button
+                onClick={handleLogin}
+                className="w-full bg-primary text-white hover:bg-red-900 h-11 sm:h-12 text-sm sm:text-base min-h-[44px]"
+                size="lg"
+              >
+                Schedule Delivery
+              </Button>
+            </div>
+          </div>
+        </div>
+        </section>

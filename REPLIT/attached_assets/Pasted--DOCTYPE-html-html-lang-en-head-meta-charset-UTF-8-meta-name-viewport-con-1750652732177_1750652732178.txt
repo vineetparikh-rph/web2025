@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgies Pharmacy Locations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 64px rgba(0,0,0,0.12);
+        }
+
+        .location-header {
+            border-bottom: 3px solid #800020;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .location-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #800020;
+            margin-bottom: 5px;
+        }
+
+        .location-address {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+            color: #800020;
+        }
+
+        .contact-item a {
+            color: #800020;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #5c001a;
+        }
+
+        .hours-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .hours-table th,
+        .hours-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .hours-table th {
+            background: #800020;
+            color: white;
+            font-weight: 600;
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .services {
+            margin-bottom: 25px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .service-item i {
+            color: #28a745;
+            font-size: 0.8rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #800020;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5c001a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #800020;
+            border: 2px solid #800020;
+        }
+
+        .btn-secondary:hover {
+            background: #800020;
+            color: white;
+        }
+
+        .footer-info {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .footer-info h3 {
+            color: #800020;
+            margin-bottom: 15px;
+        }
+
+        .radio-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .radio-option:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .radio-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: white;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-text {
+            color: white;
+            font-weight: 600;
+        }
+
+        .radio-option:has(input[type="radio"]:checked) {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .radio-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .footer-info .radio-option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+        }
+
+        .footer-info .radio-option:hover {
+            background: #fff;
+            border-color: #800020;
+            box-shadow: 0 4px 12px rgba(128, 0, 32, 0.1);
+        }
+
+        .footer-info .radio-option input[type="radio"] {
+            accent-color: #800020;
+        }
+
+        .footer-info .radio-option input[type="radio"]:checked + .radio-text {
+            color: #800020;
+        }
+
+        .footer-info .radio-option:has(input[type="radio"]:checked) {
+            background: #fff;
+            border-color: #800020;
+            box-shadow: 0 4px 12px rgba(128, 0, 32, 0.15);
+        }
+
+        .footer-info .radio-text {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                text-align: center;
+            }
+
+            .radio-options {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Georgies Pharmacy Locations</h1>
+            <p>Better Care. Better Health.</p>
+            
+            <div class="radio-options" style="margin-top: 30px;">
+                <label class="radio-option">
+                    <input type="radio" name="action" value="call">
+                    <span class="radio-text">Call Now</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="action" value="refill">
+                    <span class="radio-text">Refill Prescriptions</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="action" value="delivery">
+                    <span class="radio-text">Schedule Delivery</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="action" value="transfer">
+                    <span class="radio-text">Transfer Now</span>
+                </label>
+            </div>
+            
+            <div class="location-dropdown" style="margin-top: 20px;">
+                <select name="location" style="padding: 12px 20px; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.15); color: white; font-size: 1rem; backdrop-filter: blur(10px); width: 100%; max-width: 400px;">
+                    <option value="">Select a Location</option>
+                    <option value="family">Georgies Family Pharmacy - Linden</option>
+                    <option value="specialty">Georgies Specialty Pharmacy - Linden</option>
+                    <option value="parlin">Georgies Parlin Pharmacy - Parlin</option>
+                    <option value="outpatient">Georgies Outpatient Pharmacy - Browns Mills</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="locations-grid">
+            <!-- Georgies Family Pharmacy -->
+            <div class="location-card">
+                <div class="location-header">
+                    <div class="location-name">Georgies Family Pharmacy</div>
+                    <div class="location-address">
+                        332 W. St. Georges Avenue<br>
+                        Linden, NJ 07036-5638
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <a href="tel:+19089254567">(908) 925-4567</a>
+                    </div>
+                    <div class="contact-item">
+                        <i>📠</i>
+                        <span>Fax: (908) 925-8090</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>🗺️</i>
+                        <a href="https://maps.google.com/?q=332+W.+St.+Georges+Avenue,+Linden,+NJ+07036" target="_blank">Get Directions</a>
+                    </div>
+                </div>
+
+                <div class="hours-section">
+                    <div class="section-title">
+                        <i>🕒</i>
+                        Store Hours
+                    </div>
+                    <table class="hours-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Monday - Friday</td><td>9:00 AM - 7:00 PM</td></tr>
+                            <tr><td>Saturday</td><td>9:00 AM - 5:00 PM</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Georgies Specialty Pharmacy -->
+            <div class="location-card">
+                <div class="location-header">
+                    <div class="location-name">Georgies Specialty Pharmacy</div>
+                    <div class="location-address">
+                        521 N Wood Avenue<br>
+                        Linden, NJ 07036-4146
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <a href="tel:+19089254566">(908) 925-4566</a>
+                    </div>
+                    <div class="contact-item">
+                        <i>📠</i>
+                        <span>Fax: (908) 345-5030</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>🗺️</i>
+                        <a href="https://maps.google.com/?q=521+N+Wood+Avenue,+Linden,+NJ+07036" target="_blank">Get Directions</a>
+                    </div>
+                </div>
+
+                <div class="hours-section">
+                    <div class="section-title">
+                        <i>🕒</i>
+                        Store Hours
+                    </div>
+                    <table class="hours-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Monday - Friday</td><td>9:30 AM - 6:00 PM</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Georgies Parlin Pharmacy -->
+            <div class="location-card">
+                <div class="location-header">
+                    <div class="location-name">Georgies Parlin Pharmacy</div>
+                    <div class="location-address">
+                        499 Ernston Road<br>
+                        Parlin, NJ 08859-1406
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <a href="tel:+17329523022">(732) 952-3022</a>
+                    </div>
+                    <div class="contact-item">
+                        <i>📠</i>
+                        <span>Fax: (407) 641-8434</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>🗺️</i>
+                        <a href="https://maps.google.com/?q=499+Ernston+Road,+Parlin,+NJ+08859" target="_blank">Get Directions</a>
+                    </div>
+                </div>
+
+                <div class="hours-section">
+                    <div class="section-title">
+                        <i>🕒</i>
+                        Store Hours
+                    </div>
+                    <table class="hours-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Monday - Friday</td><td>9:00 AM - 7:00 PM</td></tr>
+                            <tr><td>Saturday</td><td>9:00 AM - 5:00 PM</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Georgies Outpatient Pharmacy -->
+            <div class="location-card">
+                <div class="location-header">
+                    <div class="location-name">Georgies Outpatient Pharmacy</div>
+                    <div class="location-address">
+                        6 Earlin Drive, Suite 130<br>
+                        Browns Mills, NJ 08015-1768
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <a href="tel:+16097265800">(609) 726-5800</a>
+                    </div>
+                    <div class="contact-item">
+                        <i>📠</i>
+                        <span>Fax: (609) 726-5810</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>🗺️</i>
+                        <a href="https://maps.google.com/?q=6+Earlin+Drive,+Suite+130,+Browns+Mills,+NJ+08015" target="_blank">Get Directions</a>
+                    </div>
+                </div>
+
+                <div class="hours-section">
+                    <div class="section-title">
+                        <i>🕒</i>
+                        Store Hours
+                    </div>
+                    <table class="hours-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Monday - Friday</td><td>9:30 AM - 6:00 PM</td></tr>
+                            <tr><td>Saturday</td><td>10:00 AM - 2:00 PM</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <h3>Need Help Finding the Right Location?</h3>
+            <p>Call our main line at <strong>(908) 925-4567</strong> and we'll help you find the Georgies Pharmacy location that best serves your needs.</p>
+        </div>
+    </div>
+</body>
+</html>

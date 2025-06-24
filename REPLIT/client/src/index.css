@@ -1,0 +1,727 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(0, 69%, 41%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(158, 79%, 40%);
+  --secondary-foreground: hsl(211, 100%, 99%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  --warning: hsl(43, 96%, 48%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --success: hsl(158, 79%, 40%);
+  --success-foreground: hsl(0, 0%, 100%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(213, 82%, 58%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(158, 79%, 40%);
+  --secondary-foreground: hsl(211, 100%, 99%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  --warning: hsl(43, 96%, 48%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --success: hsl(158, 79%, 40%);
+  --success-foreground: hsl(0, 0%, 100%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-slate-50 text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(350, 65%, 45%) 0%, hsl(350, 65%, 35%) 100%);
+  }
+  
+  .text-primary {
+    color: hsl(350, 65%, 45%);
+  }
+  
+  .text-secondary {
+    color: hsl(158, 79%, 40%);
+  }
+  
+  .text-warning {
+    color: hsl(43, 96%, 48%);
+  }
+  
+  .text-success {
+    color: hsl(158, 79%, 40%);
+  }
+  
+  .bg-primary {
+    background-color: hsl(350, 65%, 45%);
+  }
+  
+  .bg-secondary {
+    background-color: hsl(158, 79%, 40%);
+  }
+  
+  .bg-warning {
+    background-color: hsl(43, 96%, 48%);
+  }
+  
+  .bg-success {
+    background-color: hsl(158, 79%, 40%);
+  }
+  
+  .border-primary {
+    border-color: hsl(350, 65%, 45%);
+  }
+  
+  .hover\:bg-primary:hover {
+    background-color: hsl(350, 65%, 35%);
+  }
+  
+  .hover\:bg-secondary:hover {
+    background-color: hsl(158, 79%, 30%);
+  }
+}
+
+/* Scrolling animations */
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-left-to-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-scroll-right-to-left {
+  animation: scroll-right-to-left 30s linear infinite;
+}
+
+.animate-scroll-left-to-right {
+  animation: scroll-left-to-right 25s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile-optimized scrolling animations */
+@media (max-width: 768px) {
+  .animate-scroll-right-to-left {
+    animation: scroll-right-to-left 40s linear infinite;
+  }
+  
+  .animate-scroll-left-to-right {
+    animation: scroll-left-to-right 35s linear infinite;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:bg-primary:hover {
+    background-color: hsl(var(--primary));
+  }
+  
+  .hover\:text-white:hover {
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+/* Mobile viewport optimizations */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Improve text readability on mobile */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+  
+  /* Prevent zoom on input focus on iOS */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+  
+  /* Improve button touch targets */
+  button, .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+  body {
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+/* Android specific optimizations */
+@media screen and (max-width: 768px) {
+  /* Android Chrome address bar fix */
+  html {
+    height: -webkit-fill-available;
+    height: fill-available;
+  }
+  
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+  }
+  
+  /* Fix Android keyboard viewport issues */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  /* Android text selection improvements */
+  * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Allow text selection for content areas */
+  p, span, div[class*="text"], h1, h2, h3, h4, h5, h6 {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  
+  /* Android Chrome tap highlight */
+  * {
+    -webkit-tap-highlight-color: rgba(169, 42, 42, 0.2);
+  }
+  
+  /* Improve Android scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Android specific button improvements */
+@media screen and (max-width: 768px) and (hover: none) {
+  button, .btn, [role="button"] {
+    /* Remove hover states on Android */
+    transition: none;
+  }
+  
+  button:active, .btn:active, [role="button"]:active {
+    transform: scale(0.98);
+    background-color: hsl(var(--primary));
+  }
+}
+
+/* Smooth scrolling for all devices */
+html {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+}
+
+/* Fix iOS Safari viewport height issues */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Android Chrome specific fixes */
+@supports not (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: fill-available;
+  }
+
+  /* Continuous scrolling animation */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scroll-left-to-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 60s linear infinite;
+  }
+
+  .animate-scroll-left:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-scroll-left-to-right {
+    animation: scroll-left-to-right 40s linear infinite;
+  }
+
+  /* Slideshow animation with slower, smoother transitions */
+  @keyframes slideshow {
+    0% { transform: translateX(0); opacity: 1; }
+    20% { transform: translateX(0); opacity: 1; }
+    25% { transform: translateX(-100%); opacity: 0.95; }
+    45% { transform: translateX(-100%); opacity: 1; }
+    50% { transform: translateX(-200%); opacity: 0.95; }
+    70% { transform: translateX(-200%); opacity: 1; }
+    75% { transform: translateX(-300%); opacity: 0.95; }
+    95% { transform: translateX(-300%); opacity: 1; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  .animate-slideshow {
+    animation: slideshow 30s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    width: 400%;
+  }
+
+  /* Pause animation on hover for accessibility */
+  .animate-slideshow:hover {
+    animation-play-state: paused;
+  }
+
+  /* Pause animation when focused for screen reader users */
+  .animate-slideshow:focus-within {
+    animation-play-state: paused;
+  }
+
+  /* Smooth fade transition between slides */
+  .animate-slideshow > div {
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .animate-slideshow .bg-gradient-to-r {
+      background: #ffffff;
+      border: 2px solid #000000;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slideshow {
+      animation: none;
+    }
+    
+    .animate-slideshow > div:not(:first-child) {
+      display: none;
+    }
+  }
+
+  /* Adaptive Font Scaling for Different Devices */
+  
+  /* Base font size - Mobile First Approach */
+  html {
+    font-size: 14px; /* Base for small screens */
+  }
+
+  /* Small mobile devices (320px - 480px) */
+  @media (min-width: 320px) {
+    html {
+      font-size: 14px;
+    }
+    
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.875rem; }
+    .text-base { font-size: 1rem; }
+    .text-lg { font-size: 1.125rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-3xl { font-size: 1.875rem; }
+    .text-4xl { font-size: 2.25rem; }
+    .text-5xl { font-size: 3rem; }
+    .text-6xl { font-size: 3.75rem; }
+  }
+
+  /* Large mobile devices (481px - 768px) */
+  @media (min-width: 481px) {
+    html {
+      font-size: 15px;
+    }
+    
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.875rem; }
+    .text-base { font-size: 1rem; }
+    .text-lg { font-size: 1.25rem; }
+    .text-xl { font-size: 1.375rem; }
+    .text-2xl { font-size: 1.625rem; }
+    .text-3xl { font-size: 2rem; }
+    .text-4xl { font-size: 2.5rem; }
+    .text-5xl { font-size: 3.25rem; }
+    .text-6xl { font-size: 4rem; }
+  }
+
+  /* Tablet devices (769px - 1024px) */
+  @media (min-width: 769px) {
+    html {
+      font-size: 16px; /* Standard desktop base */
+    }
+    
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.875rem; }
+    .text-base { font-size: 1rem; }
+    .text-lg { font-size: 1.125rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-3xl { font-size: 1.875rem; }
+    .text-4xl { font-size: 2.25rem; }
+    .text-5xl { font-size: 3rem; }
+    .text-6xl { font-size: 3.75rem; }
+  }
+
+  /* Desktop devices (1025px - 1440px) */
+  @media (min-width: 1025px) {
+    html {
+      font-size: 16px;
+    }
+    
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.875rem; }
+    .text-base { font-size: 1rem; }
+    .text-lg { font-size: 1.125rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-3xl { font-size: 1.875rem; }
+    .text-4xl { font-size: 2.25rem; }
+    .text-5xl { font-size: 3rem; }
+    .text-6xl { font-size: 3.75rem; }
+  }
+
+  /* Large desktop screens (1441px+) */
+  @media (min-width: 1441px) {
+    html {
+      font-size: 18px; /* Larger base for big screens */
+    }
+    
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.875rem; }
+    .text-base { font-size: 1rem; }
+    .text-lg { font-size: 1.125rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-3xl { font-size: 1.875rem; }
+    .text-4xl { font-size: 2.25rem; }
+    .text-5xl { font-size: 3rem; }
+    .text-6xl { font-size: 3.75rem; }
+  }
+
+  /* Ultra-wide screens (1920px+) */
+  @media (min-width: 1920px) {
+    html {
+      font-size: 20px; /* Even larger for ultra-wide displays */
+    }
+  }
+
+  /* Dynamic font scaling using clamp() for fluid typography */
+  .fluid-text-sm {
+    font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  }
+
+  .fluid-text-base {
+    font-size: clamp(0.875rem, 0.8rem + 0.5vw, 1.125rem);
+  }
+
+  .fluid-text-lg {
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  }
+
+  .fluid-text-xl {
+    font-size: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  }
+
+  .fluid-text-2xl {
+    font-size: clamp(1.25rem, 1.1rem + 1vw, 1.875rem);
+  }
+
+  .fluid-text-3xl {
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  }
+
+  .fluid-text-4xl {
+    font-size: clamp(1.875rem, 1.5rem + 2vw, 3rem);
+  }
+
+  .fluid-text-5xl {
+    font-size: clamp(2.25rem, 1.8rem + 2.5vw, 4rem);
+  }
+
+  .fluid-text-6xl {
+    font-size: clamp(2.75rem, 2rem + 3vw, 5rem);
+  }
+
+  /* Line height adjustments for different screen sizes */
+  @media (max-width: 480px) {
+    .leading-tight { line-height: 1.2; }
+    .leading-snug { line-height: 1.3; }
+    .leading-normal { line-height: 1.4; }
+    .leading-relaxed { line-height: 1.5; }
+    .leading-loose { line-height: 1.6; }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .leading-tight { line-height: 1.25; }
+    .leading-snug { line-height: 1.35; }
+    .leading-normal { line-height: 1.45; }
+    .leading-relaxed { line-height: 1.55; }
+    .leading-loose { line-height: 1.65; }
+  }
+
+  @media (min-width: 769px) {
+    .leading-tight { line-height: 1.3; }
+    .leading-snug { line-height: 1.4; }
+    .leading-normal { line-height: 1.5; }
+    .leading-relaxed { line-height: 1.6; }
+    .leading-loose { line-height: 1.7; }
+  }
+
+  /* Adaptive spacing for better readability */
+  @media (max-width: 480px) {
+    .adaptive-spacing p { margin-bottom: 0.75rem; }
+    .adaptive-spacing h1 { margin-bottom: 1rem; }
+    .adaptive-spacing h2 { margin-bottom: 0.875rem; }
+    .adaptive-spacing h3 { margin-bottom: 0.75rem; }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .adaptive-spacing p { margin-bottom: 1rem; }
+    .adaptive-spacing h1 { margin-bottom: 1.25rem; }
+    .adaptive-spacing h2 { margin-bottom: 1rem; }
+    .adaptive-spacing h3 { margin-bottom: 0.875rem; }
+  }
+
+  @media (min-width: 769px) {
+    .adaptive-spacing p { margin-bottom: 1.25rem; }
+    .adaptive-spacing h1 { margin-bottom: 1.5rem; }
+    .adaptive-spacing h2 { margin-bottom: 1.25rem; }
+    .adaptive-spacing h3 { margin-bottom: 1rem; }
+  }
+
+  /* Professional enhancements */
+  .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+  
+  .hover\:-translate-y-1:hover {
+    transform: translateY(-0.25rem);
+  }
+  
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced shadows */
+  .shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Professional gradient backgrounds */
+  .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  }
+
+  /* Parallax Effect */
+  .parallax-bg {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .parallax-back {
+    transform: translateZ(-1px) scale(2);
+  }
+
+  .parallax-mid {
+    transform: translateZ(-0.5px) scale(1.5);
+  }
+
+  .parallax-front {
+    transform: translateZ(-0.25px) scale(1.25);
+  }
+
+  /* Alternative CSS-only parallax for better browser support */
+  @supports not (transform: translateZ(0)) {
+    .parallax-layer {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  /* Floating animations for staff images */
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(2deg);
+    }
+  }
+
+  @keyframes float-medium {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(-3deg);
+    }
+  }
+
+  @keyframes float-fast {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(1deg);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+  }
+
+  /* Location slideshow animation */
+  @keyframes slide-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-1536px); /* 4 locations * 384px width */
+    }
+  }
+
+  .animate-slide-infinite {
+    animation: slide-infinite 16s linear infinite;
+  }
+
+  /* Fade in animation */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

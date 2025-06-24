@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Medications - Georgies Pharmacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .intro-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            color: #800020;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-section {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background: #800020;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #5c001a;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #800020;
+            border: 2px solid #800020;
+        }
+
+        .cta-button.secondary:hover {
+            background: #800020;
+            color: white;
+        }
+
+        .categories-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #800020;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #800020;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 64px rgba(0,0,0,0.12);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #800020;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .category-description {
+            color: #666;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .medication-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .medication-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+        }
+
+        .medication-list li:last-child {
+            border-bottom: none;
+        }
+
+        .how-it-works {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #800020;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px auto;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            color: #666;
+        }
+
+        .benefits-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: #800020;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h3 {
+            color: #800020;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .benefit-content p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Pet Medications</h1>
+            <p>Better Care. Better Health. For Your Pets.</p>
+            <p style="font-size: 1.1rem; margin-top: 10px; font-weight: 600;">Best Prices for all pets medications</p>
+        </div>
+
+        <div class="intro-section">
+            <h2>Caring for Your Pet's Health</h2>
+            <p>At Georgies Pharmacy, we understand that your pets are family. That's why we're proud to offer a comprehensive selection of pet medications at competitive prices. From prescription treatments to preventive care, we're here to help keep your furry friends healthy and happy.</p>
+            
+            <div class="cta-section">
+                <a href="tel:+19089254567" class="cta-button">Call for Pet Prescriptions</a>
+                <a href="#" class="cta-button secondary">Transfer Pet Prescription</a>
+            </div>
+        </div>
+
+        <div class="categories-section">
+            <h2 class="section-title">Pet Medication Categories</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">🐕</div>
+                    <div class="category-title">Flea & Tick Prevention</div>
+                    <div class="category-description">Protect your pets from fleas, ticks, and other parasites with our selection of topical and oral treatments.</div>
+                    <ul class="medication-list">
+                        <li>Frontline Plus</li>
+                        <li>Bravecto</li>
+                        <li>Seresto Collars</li>
+                        <li>Nexgard</li>
+                        <li>Simparica</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">❤️</div>
+                    <div class="category-title">Heartworm Prevention</div>
+                    <div class="category-description">Keep your pet's heart healthy with effective heartworm preventatives available in various formulations.</div>
+                    <ul class="medication-list">
+                        <li>Heartgard Plus</li>
+                        <li>Interceptor Plus</li>
+                        <li>Revolution</li>
+                        <li>Trifexis</li>
+                        <li>Sentinel Spectrum</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">💊</div>
+                    <div class="category-title">Antibiotics & Pain Relief</div>
+                    <div class="category-description">Prescription medications to treat infections, manage pain, and support your pet's recovery.</div>
+                    <ul class="medication-list">
+                        <li>Amoxicillin</li>
+                        <li>Cephalexin</li>
+                        <li>Tramadol</li>
+                        <li>Carprofen</li>
+                        <li>Meloxicam</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">🩺</div>
+                    <div class="category-title">Chronic Condition Management</div>
+                    <div class="category-description">Long-term medications for managing diabetes, thyroid conditions, and other chronic health issues.</div>
+                    <ul class="medication-list">
+                        <li>Insulin (Vetsulin, Novolin)</li>
+                        <li>Levothyroxine</li>
+                        <li>Enalapril</li>
+                        <li>Furosemide</li>
+                        <li>Prednisone</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">🧴</div>
+                    <div class="category-title">Skin & Ear Care</div>
+                    <div class="category-description">Topical treatments for skin conditions, ear infections, and dermatological issues.</div>
+                    <ul class="medication-list">
+                        <li>Malaseb Shampoo</li>
+                        <li>Otomax</li>
+                        <li>Surolan</li>
+                        <li>Apoquel</li>
+                        <li>Atopica</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">🐾</div>
+                    <div class="category-title">Supplements & Vitamins</div>
+                    <div class="category-description">Nutritional supplements to support joint health, digestive health, and overall wellness.</div>
+                    <ul class="medication-list">
+                        <li>Cosequin</li>
+                        <li>Dasuquin</li>
+                        <li>Omega-3 Supplements</li>
+                        <li>Probiotics</li>
+                        <li>Milk Thistle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="how-it-works">
+            <h2 class="section-title">How It Works</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Get Your Prescription</div>
+                    <div class="step-description">Have your veterinarian write a prescription or transfer an existing prescription to Georgies Pharmacy.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Contact Us</div>
+                    <div class="step-description">Call or visit any of our locations to discuss your pet's medication needs with our pharmacists.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">We'll Handle the Rest</div>
+                    <div class="step-description">We'll verify the prescription with your vet, prepare your medication, and have it ready for pickup or delivery.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Ongoing Support</div>
+                    <div class="step-description">Our pharmacists are available to answer questions about dosing, administration, and potential side effects.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="benefits-section">
+            <h2 class="section-title">Why Choose Georgies for Pet Medications?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <h3>Competitive Pricing</h3>
+                        <p>Often significantly less expensive than veterinary clinics, with transparent pricing and no hidden fees.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">👨‍⚕️</div>
+                    <div class="benefit-content">
+                        <h3>Expert Pharmacists</h3>
+                        <p>Our licensed pharmacists are knowledgeable about pet medications and can answer your questions.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚚</div>
+                    <div class="benefit-content">
+                        <h3>Convenient Options</h3>
+                        <p>Multiple pickup locations, delivery services, and flexible hours to fit your schedule.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔄</div>
+                    <div class="benefit-content">
+                        <h3>Easy Transfers</h3>
+                        <p>We'll handle transferring prescriptions from your vet or another pharmacy - no hassle for you.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-content">
+                        <h3>Quality Assurance</h3>
+                        <p>All medications are sourced from reputable manufacturers and stored under proper conditions.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">📞</div>
+                    <div class="benefit-content">
+                        <h3>Personal Service</h3>
+                        <p>We know you and your pets by name, providing personalized care you won't find at big chains.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Contact any of our locations to discuss your pet's medication needs or to transfer a prescription.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+19089254567">Georgies Family Pharmacy: (908) 925-4567</a>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+19089254566">Georgies Specialty Pharmacy: (908) 925-4566</a>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+17329523022">Georgies Parlin Pharmacy: (732) 952-3022</a>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+16097265800">Georgies Outpatient Pharmacy: (609) 726-5800</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

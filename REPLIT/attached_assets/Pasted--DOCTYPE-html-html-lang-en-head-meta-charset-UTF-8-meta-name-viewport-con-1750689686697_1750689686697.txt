@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Services FAQ - Georgies Pharmacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 50px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .faq-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            color: #800020;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            border-bottom: 3px solid #800020;
+            padding-bottom: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            border-left: 4px solid #800020;
+            padding-left: 20px;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #800020;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-question::before {
+            content: "▶";
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-answer {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            padding-left: 20px;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .faq-answer a {
+            color: #800020;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-highlight {
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .contact-highlight h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .quick-links {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .quick-links h4 {
+            color: #800020;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .quick-links li {
+            padding: 8px 0;
+        }
+
+        .quick-links a {
+            color: #800020;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .quick-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-item {
+                padding-left: 15px;
+            }
+            
+            .faq-answer {
+                padding-left: 15px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Prescription Services FAQ</h1>
+            <p>Everything you need to know about your prescriptions at Georgies Pharmacy</p>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="section-title">General Prescription Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How do I submit a new prescription to Georgies Pharmacy?
+                </div>
+                <div class="faq-answer">
+                    New, paper prescriptions must be presented directly to any of our four locations for processing. Electronic prescriptions can be sent directly from your doctor to any Georgies Pharmacy location. You can also request your doctor to send prescriptions to our secure fax numbers or call us to transfer from another pharmacy.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Who can pick up my prescriptions?
+                </div>
+                <div class="faq-answer">
+                    You may pick up your own prescriptions with valid ID. Family members and caregivers may pick up prescriptions with proper authorization and identification. State laws vary, so please contact your local Georgies Pharmacy for specific pickup requirements. HIPAA consent forms may be required for certain pickups.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Can I get 90-day prescription fills?
+                </div>
+                <div class="faq-answer">
+                    Yes! The ability to fill a 90-day prescription depends on how the prescription is written, your insurance plan restrictions, and state laws. For maintenance medications, we often can provide 90-day supplies for better convenience and cost savings. Our pharmacists will work with your doctor if authorization is needed for extended supplies.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How do I know when my prescription is ready?
+                </div>
+                <div class="faq-answer">
+                    We offer free prescription notifications via text, email, or phone call when your prescriptions are ready for pickup or due for refill. You can also call your local Georgies Pharmacy directly to check on prescription status. Sign up for our notification service in-store or ask our staff to enroll you.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="section-title">Refills & Timing</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    When can I refill my prescriptions early?
+                </div>
+                <div class="faq-answer">
+                    Most prescriptions can be refilled a few days early (typically 3-5 days). However, the exact timing varies based on the medication type, insurance plan restrictions, and state regulations. Controlled substances have stricter refill timing requirements. Our pharmacists will let you know the earliest refill date for each medication.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How long will you hold my filled prescription?
+                </div>
+                <div class="faq-answer">
+                    Georgies Pharmacy will hold filled prescriptions for pickup for up to 14 days, depending on the type of medication. After that time, it will be returned to stock for safety and regulatory reasons. If you have valid refills remaining, we can refill the prescription again when you're ready to pick it up.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How can I order prescription refills?
+                </div>
+                <div class="faq-answer">
+                    You can order refills several convenient ways: 1) Walk into any Georgies Pharmacy location, 2) Call your local store directly, 3) Use our mobile app or website (coming soon), 4) Set up automatic refills for maintenance medications. Our pharmacists can also coordinate refills with your doctors when needed.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="section-title">Account & Records</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How do I get a copy of my prescription history?
+                </div>
+                <div class="faq-answer">
+                    To obtain a copy of your prescription profile, contact your local Georgies Pharmacy. Our pharmacists can print your complete medication history and either mail it to your home address or have it ready for pickup. We maintain prescription records for 10 years and can provide comprehensive medication histories for insurance or medical purposes.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How do I update my insurance or personal information?
+                </div>
+                <div class="faq-answer">
+                    For privacy protection, all changes to personal information or insurance must be made at your local Georgies Pharmacy location. Bring your new insurance card and ID, and our staff will update your profile immediately. This ensures your information stays secure and up-to-date for accurate billing.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Can I remove medications from my profile?
+                </div>
+                <div class="faq-answer">
+                    While medications cannot be completely removed from your profile for record-keeping purposes, you can contact your Georgies Pharmacy to cancel future refills or mark prescriptions as inactive. This helps keep your active medication list current and prevents unwanted refill reminders.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="section-title">Insurance & Pricing</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Do you accept my insurance?
+                </div>
+                <div class="faq-answer">
+                    Georgies Pharmacy accepts all major insurance plans including Medicare, Medicaid, and most private insurance providers. To verify your specific plan, contact your insurance company directly or call your local Georgies Pharmacy. We'll work with your insurance to maximize your benefits and minimize your out-of-pocket costs.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    What if I don't have insurance?
+                </div>
+                <div class="faq-answer">
+                    No problem! Our exclusive <strong>Georgies Pharmacy Discount</strong> program offers competitive cash prices for all medications. We also work with discount programs and manufacturer coupons to find you the best possible price. Our pharmacists will help you explore all cost-saving options available.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How much will my prescription cost?
+                </div>
+                <div class="faq-answer">
+                    Prescription prices vary based on insurance coverage, brand vs. generic options, and quantity. Call your local Georgies Pharmacy for accurate pricing. Our pharmacists will review all available options including generics, insurance benefits, and discount programs to ensure you get the best price possible.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    What payment methods do you accept?
+                </div>
+                <div class="faq-answer">
+                    We accept cash, all major credit cards (Visa, MasterCard, American Express, Discover), debit cards, HSA/FSA cards, and insurance co-payments. Payment is processed at the time of pickup at any of our four convenient locations.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="section-title">Special Services</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Do you offer prescription delivery?
+                </div>
+                <div class="faq-answer">
+                    Yes! Georgies Parlin Pharmacy offers home delivery services, and we're expanding delivery to other locations. We also offer our exclusive <strong>MedPack</strong> service through Georgies Outpatient Pharmacy - your medications sorted by date and time and delivered monthly. Contact your local store for delivery availability and scheduling.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    What is MedPack?
+                </div>
+                <div class="faq-answer">
+                    MedPack is our exclusive medication management and delivery service available through Georgies Outpatient Pharmacy. We sort your medications by date and time into individual packets and deliver them to your door monthly. It's perfect for managing multiple medications and includes automatic refill coordination with your doctors.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Do you provide compounding services?
+                </div>
+                <div class="faq-answer">
+                    Yes! Georgies Parlin Pharmacy offers custom compounding services for specialized medication needs. This includes custom dosage forms, flavoring for children's medications, and specialized formulations. Our trained pharmacists can create personalized medications when commercial options aren't suitable.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Can I return prescription medications?
+                </div>
+                <div class="faq-answer">
+                    Most states prohibit the return of prescription medications once they leave the pharmacy for safety reasons. However, if there's an error or issue with your prescription, please contact your Georgies Pharmacy immediately. We'll work with you to resolve any problems and ensure you receive the correct medication.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="section-title">Transfer & Emergency Services</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How do I transfer prescriptions from another pharmacy?
+                </div>
+                <div class="faq-answer">
+                    Transferring prescriptions to Georgies Pharmacy is easy and free! Simply call your preferred Georgies location with your current pharmacy information and prescription details. Our pharmacists will handle all the paperwork and coordination. Most transfers can be completed within 1-2 hours during business hours.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    What if I need a prescription after hours?
+                </div>
+                <div class="faq-answer">
+                    For true emergencies, contact your doctor or visit the nearest emergency room. For urgent medication needs, call your Georgies Pharmacy location - we often can arrange emergency fills or direct you to the closest 24-hour pharmacy option. Our pharmacists are available to provide guidance and support.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Can I fill prescriptions at any Georgies location?
+                </div>
+                <div class="faq-answer">
+                    Yes! Once you're in our system, you can fill prescriptions at any of our four Georgies Pharmacy locations. Your prescription information and history are accessible at all locations for your convenience. This makes it easy when you're traveling or need to visit a different location.
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-highlight">
+            <h3>Need Help? Contact Your Local Georgies Pharmacy</h3>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Georgies Family Pharmacy</strong>
+                    <a href="tel:+19089254567">(908) 925-4567</a>
+                    <div>332 W. St. Georges Ave, Linden, NJ</div>
+                </div>
+                <div class="contact-item">
+                    <strong>Georgies Specialty Pharmacy</strong>
+                    <a href="tel:+19089254566">(908) 925-4566</a>
+                    <div>521 N Wood Ave, Linden, NJ</div>
+                </div>
+                <div class="contact-item">
+                    <strong>Georgies Parlin Pharmacy</strong>
+                    <a href="tel:+17329523022">(732) 952-3022</a>
+                    <div>499 Ernston Rd, Parlin, NJ</div>
+                </div>
+                <div class="contact-item">
+                    <strong>Georgies Outpatient Pharmacy</strong>
+                    <a href="tel:+16097265800">(609) 726-5800</a>
+                    <div>6 Earlin Dr, Browns Mills, NJ</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#pet-medications">Pet Medications</a></li>
+                <li><a href="#medpack">MedPack Service</a></li>
+                <li><a href="#best-prices">Price Comparison</a></li>
+                <li><a href="#locations">Find Locations</a></li>
+                <li><a href="#transfer">Transfer Prescriptions</a></li>
+                <li><a href="#insurance">Insurance Information</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(question) {
+            const answer = question.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all other answers
+            document.querySelectorAll('.faq-answer.active').forEach(item => {
+                item.classList.remove('active');
+                item.previousElementSibling.classList.remove('active');
+            });
+            
+            // Toggle current answer
+            if (!isActive) {
+                answer.classList.add('active');
+                question.classList.add('active');
+            }
+        }
+
+        // Optional: Close answers when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.faq-item')) {
+                document.querySelectorAll('.faq-answer.active').forEach(item => {
+                    item.classList.remove('active');
+                    item.previousElementSibling.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

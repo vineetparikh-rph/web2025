@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How MedPack Works - Georgies Outpatient Pharmacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 50px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+
+        .step {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-left: 6px solid #800020;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: #800020;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .step h2 {
+            color: #800020;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .step p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .step-details {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .step-details h3 {
+            color: #800020;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .step-details ul {
+            margin-left: 20px;
+        }
+
+        .step-details li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .timeline {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .timeline h2 {
+            color: #800020;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .timeline-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .timeline-item {
+            text-align: center;
+        }
+
+        .timeline-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .timeline-text {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #800020;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            color: #800020;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #800020;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background: #800020;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .step h2 {
+                font-size: 1.5rem;
+            }
+            
+            .timeline-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>How MedPack Works</h1>
+            <p>Simple, organized medication management and delivery</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">1</div>
+            <h2>We Transfer Your Prescriptions</h2>
+            <p>First, we'll work with you to transfer all your current prescriptions to Georgies Outpatient Pharmacy. This process is completely free and we handle all the coordination with your current pharmacy and doctors.</p>
+            
+            <div class="step-details">
+                <h3>What We Do:</h3>
+                <ul>
+                    <li>Contact your current pharmacy to transfer prescriptions</li>
+                    <li>Verify all medications and dosages with your doctors</li>
+                    <li>Review your insurance coverage and benefits</li>
+                    <li>Set up your personalized medication profile</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <h2>We Sort Your Medications by Date and Time</h2>
+            <p>Our pharmacists carefully organize all your medications into individual dose packets. Each packet is clearly labeled with the date, time, and contains exactly the medications you need for that specific dose.</p>
+            
+            <div class="step-details">
+                <h3>What You Get:</h3>
+                <ul>
+                    <li>Individual packets for each dose (morning, afternoon, evening)</li>
+                    <li>Clear labeling with date, time, and medication names</li>
+                    <li>Easy-to-open, tamper-evident packaging</li>
+                    <li>Large print labels for easy reading</li>
+                    <li>Color-coded by time of day</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <h2>We Deliver to Your Door Every Month</h2>
+            <p>Your medications are delivered directly to your home every month, completely free of charge. No more trips to the pharmacy or worrying about running out of medications.</p>
+            
+            <div class="step-details">
+                <h3>Delivery Details:</h3>
+                <ul>
+                    <li>Free monthly delivery to your doorstep</li>
+                    <li>Secure, discreet packaging</li>
+                    <li>Delivery notifications and tracking</li>
+                    <li>Flexible delivery scheduling</li>
+                    <li>Emergency refill options available</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <h2>Ongoing Support and Management</h2>
+            <p>We don't just deliver your medications - we actively manage your prescriptions, work with your doctors for refills, and provide ongoing pharmacist support whenever you need it.</p>
+            
+            <div class="step-details">
+                <h3>Our Support Includes:</h3>
+                <ul>
+                    <li>Automatic prescription refill management</li>
+                    <li>Coordination with doctors for new prescriptions</li>
+                    <li>Insurance claims processing and prior authorizations</li>
+                    <li>Medication counseling and interaction checks</li>
+                    <li>24/7 pharmacist support for questions</li>
+                    <li>Regular medication reviews and updates</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <h2>Your First Month Timeline</h2>
+            
+            <div class="timeline-steps">
+                <div class="timeline-item">
+                    <span class="timeline-icon">📞</span>
+                    <div class="timeline-text">Day 1-2<br>Initial Call & Setup</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-icon">📋</span>
+                    <div class="timeline-text">Day 3-5<br>Prescription Transfer</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-icon">💊</span>
+                    <div class="timeline-text">Day 6-8<br>Medication Preparation</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-icon">🚚</span>
+                    <div class="timeline-text">Day 9-10<br>First Delivery</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Call Georgies Outpatient Pharmacy today to begin your MedPack service. Our team will guide you through the simple setup process.</p>
+            
+            <a href="tel:+16097265800" class="cta-button">Call (609) 726-5800</a>
+            <a href="#" class="cta-button">Visit Our Pharmacy</a>
+        </div>
+
+        <div class="back-link">
+            <a href="javascript:history.back()">← Back to MedPack</a>
+        </div>
+    </div>
+</body>
+</html>

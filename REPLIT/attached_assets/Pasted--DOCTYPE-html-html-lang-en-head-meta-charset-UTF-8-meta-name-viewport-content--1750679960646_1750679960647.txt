@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTC Store | GeorgiesRx</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-red-600 text-white p-4">
+    <h1 class="text-2xl font-bold">Georgies Pharmacy – OTC Online Store</h1>
+    <p class="text-sm">Free delivery & pickup at all NJ locations</p>
+  </header>
+  <nav class="bg-white shadow p-4 flex flex-wrap gap-2 justify-center">
+    <button class="bg-gray-200 hover:bg-red-100 px-4 py-2 rounded">All</button>
+    <button class="bg-gray-200 hover:bg-red-100 px-4 py-2 rounded">Cold & Flu</button>
+    <button class="bg-gray-200 hover:bg-red-100 px-4 py-2 rounded">Pain Relief</button>
+    <button class="bg-gray-200 hover:bg-red-100 px-4 py-2 rounded">Vitamins</button>
+    <button class="bg-gray-200 hover:bg-red-100 px-4 py-2 rounded">Digestive Health</button>
+  </nav>
+  <section class="p-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="bg-white shadow rounded p-4 flex flex-col">
+      <img src="https://via.placeholder.com/300x300?text=Tylenol+500mg" alt="Tylenol 500mg" class="mb-3 rounded" />
+      <h2 class="font-semibold text-lg mb-1">Tylenol Extra Strength 500mg</h2>
+      <p class="text-sm text-gray-600 mb-2">100 Caplets</p>
+      <span class="font-bold text-red-600 mb-2">$12.99</span>
+      <label class="text-sm mb-1">Pickup Location:</label>
+      <select class="mb-2 border border-gray-300 rounded p-1 text-sm">
+        <option>Georgies Parlin</option>
+        <option>Georgies Linden</option>
+        <option>Georgies Browns Mills</option>
+      </select>
+      <label class="text-sm mb-1">Delivery or Pickup:</label>
+      <select class="mb-4 border border-gray-300 rounded p-1 text-sm">
+        <option>Delivery</option>
+        <option>Pickup</option>
+      </select>
+      <button class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700">Add to Cart</button>
+    </div>
+  </section>
+</body>
+</html>

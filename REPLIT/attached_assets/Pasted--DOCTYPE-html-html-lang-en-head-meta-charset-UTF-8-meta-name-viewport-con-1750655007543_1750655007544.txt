@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedPack - Georgies Outpatient Pharmacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-tagline {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            padding: 18px 36px;
+            background: white;
+            color: #800020;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 3px solid white;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 3px solid rgba(255,255,255,0.7);
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: #800020;
+            border-color: white;
+        }
+
+        .intro-video {
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+
+        .intro-video a {
+            color: white;
+            text-decoration: underline;
+            font-size: 1.1rem;
+        }
+
+        .how-it-works {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .section-title {
+            color: #800020;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-top: 4px solid #800020;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(128, 0, 32, 0.15);
+        }
+
+        .step-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #800020;
+            margin-bottom: 15px;
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .learn-more {
+            margin-top: 20px;
+        }
+
+        .learn-more a {
+            color: #800020;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .learn-more a:hover {
+            border-bottom-color: #800020;
+        }
+
+        .features-section {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            color: #800020;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .feature-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .pricing-section {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .pricing-highlight {
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .pricing-highlight h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .pricing-highlight p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        .pharmacy-highlight {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .pharmacy-highlight p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.4rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <h1>MedPack</h1>
+            <div class="hero-tagline">Your medication, sorted and delivered</div>
+            <div class="hero-description">MedPack is a full-service pharmacy service designed around your life, exclusively from Georgies Outpatient Pharmacy.</div>
+            
+            <div class="cta-buttons">
+                <a href="tel:+16097265800" class="cta-button">Get Started Today</a>
+                <a href="#how-it-works" class="cta-button secondary">See How It Works</a>
+            </div>
+            
+            <div class="intro-video">
+                <a href="#contact">Learn more about MedPack →</a>
+            </div>
+        </div>
+
+        <div class="how-it-works" id="how-it-works">
+            <h2 class="section-title">How MedPack Works</h2>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <span class="step-icon">📦</span>
+                    <div class="step-title">We'll sort your meds by date and time</div>
+                    <div class="step-description">Each dose is individually packaged with the date and time clearly labeled, so you never miss a dose or take the wrong medication.</div>
+                    <div class="learn-more">
+                        <a href="#contact">See how it works</a>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-icon">🚚</span>
+                    <div class="step-title">Deliver them to you every month</div>
+                    <div class="step-description">Free delivery right to your doorstep every month. Never run out of medications or make trips to the pharmacy again.</div>
+                    <div class="learn-more">
+                        <a href="#contact">See delivery options</a>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-icon">🛍️</span>
+                    <div class="step-title">Include any other pharmacy items</div>
+                    <div class="step-description">Need over-the-counter medications, vitamins, or health supplies? We'll include them with your monthly delivery at no extra charge.</div>
+                    <div class="learn-more">
+                        <a href="#contact">See what we include</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2 class="section-title">Full Service - A New Kind of Care</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-content">
+                        <h3>Automatic Refills</h3>
+                        <p>We monitor and manage your refills with your doctors so you always have the medications you need. No more calling for refills or running out unexpectedly.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <div class="feature-content">
+                        <h3>Behind-the-Scenes Support</h3>
+                        <p>We work directly with your doctors and insurance companies to save you time and hassle. Prior authorizations, insurance issues, and prescription changes are handled for you.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📋</div>
+                    <div class="feature-content">
+                        <h3>Everything in One Place</h3>
+                        <p>We organize all your medication information, billing details, and prescription records for easy access. One pharmacy, one point of contact, one simplified experience.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">👩‍⚕️</div>
+                    <div class="feature-content">
+                        <h3>Pharmacist Support</h3>
+                        <p>Direct access to our licensed pharmacists for medication counseling, drug interaction checks, and answers to any questions about your prescriptions.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-content">
+                        <h3>Easy Communication</h3>
+                        <p>Updates about your medications, delivery notifications, and easy ways to contact us when you need support or have changes to your prescriptions.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-content">
+                        <h3>Safe & Secure</h3>
+                        <p>Your medications are safely packaged, clearly labeled, and delivered securely. All personal health information is protected according to HIPAA standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-section">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">Our MedPack service makes managing your medications easier without adding extra costs.</p>
+            
+            <div class="pricing-highlight">
+                <h3>Our service is free</h3>
+                <p>You only pay for your medications - same prices as any other pharmacy. No monthly fees, no delivery charges, no hidden costs.</p>
+            </div>
+            
+            <p style="font-size: 1.1rem; color: #666; margin-top: 30px;">We accept all major insurance plans including Medicare and Medicaid. For uninsured patients, our Georgies Pharmacy Discount program ensures competitive pricing.</p>
+        </div>
+
+        <div class="contact-section" id="contact">
+            <h2>Ready to Simplify Your Medications?</h2>
+            <p>Switch to MedPack today and experience a simpler way to manage your prescriptions.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+16097265800">Call: (609) 726-5800</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Visit: 6 Earlin Drive, Suite 130, Browns Mills, NJ</span>
+                </div>
+            </div>
+            
+            <div class="pharmacy-highlight">
+                <p><strong>MedPack is exclusively available through Georgies Outpatient Pharmacy</strong><br>
+                Serving patients with personalized medication management and delivery services.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

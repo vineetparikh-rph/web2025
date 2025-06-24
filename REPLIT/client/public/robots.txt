@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://georgiesrx.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block sensitive areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.env
+Disallow: /dist/
+Disallow: /node_modules/
+
+# Allow important pharmacy pages
+Allow: /locations
+Allow: /services/
+Allow: /about
+Allow: /contact
+Allow: /testimonials
+Allow: /best-prices
+Allow: /pet-medications
+Allow: /medpack

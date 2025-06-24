@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Prices - Georgies Pharmacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .search-title {
+            text-align: center;
+            color: #800020;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .search-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-input-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #800020;
+        }
+
+        .search-button {
+            padding: 15px 30px;
+            background: #800020;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: #5c001a;
+            transform: translateY(-2px);
+        }
+
+        .search-options {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .search-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-option input[type="radio"] {
+            accent-color: #800020;
+        }
+
+        .search-option label {
+            color: #666;
+            cursor: pointer;
+        }
+
+        .price-comparison {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .comparison-title {
+            text-align: center;
+            color: #800020;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .price-table th {
+            background: #800020;
+            color: white;
+            font-weight: 600;
+        }
+
+        .price-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .best-price {
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        .savings-highlight {
+            background: #d4edda;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .savings-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #28a745;
+        }
+
+        .features-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #800020;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            color: #800020;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .feature-content p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .popular-searches {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .popular-title {
+            text-align: center;
+            color: #800020;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .scrolling-container {
+            overflow: hidden;
+            position: relative;
+            height: 60px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .scrolling-content {
+            display: flex;
+            animation: scrollRightToLeft 45s linear infinite;
+            white-space: nowrap;
+        }
+
+        .scrolling-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 25px;
+            background: #800020;
+            color: white;
+            border-radius: 25px;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .scrolling-item:hover {
+            background: #5c001a;
+            transform: scale(1.05);
+        }
+
+        @keyframes scrollRightToLeft {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .scrolling-content:hover {
+            animation-play-state: paused;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .search-input-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-input {
+                margin-bottom: 0;
+            }
+            
+            .search-button {
+                margin-top: 0;
+                padding: 15px 20px;
+            }
+            
+            .search-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Best Prices</h1>
+            <p>Better Care. Better Health.</p>
+            <div class="tagline">Compare prescription prices and save money</div>
+        </div>
+
+        <div class="search-section">
+            <h2 class="search-title">Find the Best Price For Your Medication</h2>
+            
+            <form class="search-form" onsubmit="searchPrices(event)">
+                <div class="search-input-group">
+                    <input type="text" id="medicationName" class="search-input" placeholder="Medication name (e.g., Metformin, Lisinopril)" required>
+                    <input type="text" id="strength" class="search-input" placeholder="Strength (e.g., 500mg, 10mg)" required>
+                    <input type="text" id="zipcode" class="search-input" placeholder="Zip Code (e.g., 07036)" required>
+                    <button type="submit" class="search-button">Search Prices</button>
+                </div>
+                
+                <div class="search-options">
+                    <div class="search-option">
+                        <input type="radio" id="brand" name="medicationType" value="brand">
+                        <label for="brand">Brand Name</label>
+                    </div>
+                    <div class="search-option">
+                        <input type="radio" id="generic" name="medicationType" value="generic" checked>
+                        <label for="generic">Generic</label>
+                    </div>
+                    <div class="search-option">
+                        <input type="radio" id="both" name="medicationType" value="both">
+                        <label for="both">Both</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="price-comparison" id="priceResults">
+            <h3 class="comparison-title">Price Comparison Results</h3>
+            
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Pharmacy</th>
+                        <th>Medication</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Savings vs. Average</th>
+                    </tr>
+                </thead>
+                <tbody id="priceTableBody">
+                    <!-- Results will be populated here -->
+                </tbody>
+            </table>
+            
+            <div class="savings-highlight">
+                <div class="savings-amount">Save up to $XX.XX</div>
+                <p>by choosing any Georgies Pharmacy location over other options</p>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2 class="comparison-title">Why Our Price Comparison Tool?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-content">
+                        <h3>Real-Time Pricing</h3>
+                        <p>Get up-to-date pricing from multiple sources including Mark Cuban Cost Plus Drug pricing data.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-content">
+                        <h3>Comprehensive Search</h3>
+                        <p>Compare prices across brand name, generic, and alternative medications to find the best deal.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h3>Transparent Comparison</h3>
+                        <p>See exactly how much you can save compared to other pharmacies and online retailers.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-content">
+                        <h3>Local Focus</h3>
+                        <p>Prioritizes local pharmacy options while showing national pricing benchmarks.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-content">
+                        <h3>Fast Results</h3>
+                        <p>Get pricing information in seconds, with options to transfer or fill prescriptions immediately.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-content">
+                        <h3>No Personal Info Required</h3>
+                        <p>Search anonymously without providing personal information or insurance details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popular-searches">
+            <h2 class="popular-title">Popular Medication Searches</h2>
+            
+            <div class="scrolling-container">
+                <div class="scrolling-content">
+                    <div class="scrolling-item" onclick="quickSearch('Metformin', '500mg')">Metformin 500mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Lisinopril', '10mg')">Lisinopril 10mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Atorvastatin', '20mg')">Atorvastatin 20mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Metoprolol', '50mg')">Metoprolol 50mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Omeprazole', '20mg')">Omeprazole 20mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Amlodipine', '5mg')">Amlodipine 5mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Losartan', '50mg')">Losartan 50mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Gabapentin', '300mg')">Gabapentin 300mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Sertraline', '50mg')">Sertraline 50mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Levothyroxine', '50mcg')">Levothyroxine 50mcg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Hydrochlorothiazide', '25mg')">Hydrochlorothiazide 25mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Prednisone', '20mg')">Prednisone 20mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Furosemide', '40mg')">Furosemide 40mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Warfarin', '5mg')">Warfarin 5mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Citalopram', '20mg')">Citalopram 20mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Pantoprazole', '40mg')">Pantoprazole 40mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Tramadol', '50mg')">Tramadol 50mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Insulin', '100units/ml')">Insulin 100units/ml</div>
+                    <div class="scrolling-item" onclick="quickSearch('Amoxicillin', '500mg')">Amoxicillin 500mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Albuterol', '90mcg')">Albuterol 90mcg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Clonazepam', '1mg')">Clonazepam 1mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Cyclobenzaprine', '10mg')">Cyclobenzaprine 10mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Duloxetine', '60mg')">Duloxetine 60mg</div>
+                    <div class="scrolling-item" onclick="quickSearch('Escitalopram', '10mg')">Escitalopram 10mg</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Questions About Pricing?</h2>
+            <p>Contact any of our locations for personalized pricing information and to discuss your prescription needs.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+19089254567">Georgies Family Pharmacy: (908) 925-4567</a>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+19089254566">Georgies Specialty Pharmacy: (908) 925-4566</a>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+17329523022">Georgies Parlin Pharmacy: (732) 952-3022</a>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="tel:+16097265800">Georgies Outpatient Pharmacy: (609) 726-5800</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchPrices(event) {
+            event.preventDefault();
+            
+            const medicationName = document.getElementById('medicationName').value;
+            const strength = document.getElementById('strength').value;
+            const zipcode = document.getElementById('zipcode').value;
+            const medicationType = document.querySelector('input[name="medicationType"]:checked').value;
+            
+            // Show the results section
+            document.getElementById('priceResults').style.display = 'block';
+            
+            // Simulate API call - replace with actual API integration
+            setTimeout(() => {
+                displayPriceResults(medicationName, strength, zipcode, medicationType);
+            }, 1000);
+            
+            // Scroll to results
+            document.getElementById('priceResults').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function quickSearch(medication, strength) {
+            document.getElementById('medicationName').value = medication;
+            document.getElementById('strength').value = strength;
+            document.getElementById('zipcode').value = '07036'; // Default to Linden, NJ area
+            searchPrices({ preventDefault: () => {} });
+        }
+        
+        function displayPriceResults(medication, strength, zipcode, type) {
+            const tableBody = document.getElementById('priceTableBody');
+            
+            // Sample data with Georgies Pharmacy at the top - replace with actual API results
+            const sampleResults = [
+                { pharmacy: 'Georgies Family Pharmacy', price: '$12.99', savings: '$15.00', class: 'best-price' },
+                { pharmacy: 'Georgies Specialty Pharmacy', price: '$13.49', savings: '$14.50', class: 'best-price' },
+                { pharmacy: 'Georgies Parlin Pharmacy', price: '$13.99', savings: '$14.00', class: 'best-price' },
+                { pharmacy: 'CVS Pharmacy', price: '$27.99', savings: '$0.00', class: '' },
+                { pharmacy: 'Walgreens', price: '$25.50', savings: '$2.49', class: '' },
+                { pharmacy: 'Cost Plus Drug Company', price: '$14.20', savings: '$13.79', class: '' },
+                { pharmacy: 'Walmart Pharmacy', price: '$18.99', savings: '$9.00', class: '' },
+                { pharmacy: 'Rite Aid', price: '$24.99', savings: '$3.00', class: '' }
+            ];
+            
+            tableBody.innerHTML = sampleResults.map(result => `
+                <tr>
+                    <td><strong>${result.pharmacy}</strong></td>
+                    <td>${medication} ${strength}</td>
+                    <td>30 tablets</td>
+                    <td class="${result.class}">${result.price}</td>
+                    <td class="${result.class}">${result.savings}</td>
+                </tr>
+            `).join('');
+            
+            // Update savings highlight
+            document.querySelector('.savings-amount').textContent = 'Save up to $15.00';
+        }
+    </script>
+</body>
+</html>

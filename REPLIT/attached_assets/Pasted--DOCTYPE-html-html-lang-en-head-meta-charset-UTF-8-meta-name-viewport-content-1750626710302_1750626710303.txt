@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms and Conditions - GeorgiesRx.com</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 40px;
+      max-width: 960px;
+      margin: auto;
+      background-color: #f9f9f9;
+    }
+    h1, h2 {
+      color: #8b0000;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      margin-top: 2rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    ul {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Terms and Conditions</h1>
+  <p><strong>Effective Date:</strong> Since Inception<br>
+     <strong>Last Updated:</strong> June 22, 2025</p>
+
+  <p>Welcome to GeorgiesRx.com, the official website of Georgies Pharmacy, which includes the following locations:</p>
+
+  <ul>
+    <li><strong>Georgies Family Pharmacy</strong>: 332 W. St. Georges Avenue, Linden, NJ 07036</li>
+    <li><strong>Georgies Specialty Pharmacy</strong>: 521 N Wood Avenue, Linden, NJ 07036</li>
+    <li><strong>Georgies Parlin Pharmacy</strong>: 499 Ernston Road, Parlin, NJ 08859</li>
+    <li><strong>Georgies Outpatient Pharmacy</strong>: 6 Earlin Drive, Suite 130, Browns Mills, NJ 08015</li>
+  </ul>
+
+  <p>These Terms govern your use of our site and services. By accessing GeorgiesRx.com, you agree to be bound by these Terms.</p>
+
+  <h2>1. Use of the Website</h2>
+  <p>You agree to use this site only for lawful purposes. You may not:</p>
+  <ul>
+    <li>Violate any applicable laws</li>
+    <li>Transmit viruses or malicious code</li>
+    <li>Harvest data or attempt to hack the site</li>
+    <li>Post unlawful or harmful content</li>
+  </ul>
+
+  <h2>2. Medical Disclaimer</h2>
+  <p>All health content is informational and not a substitute for professional medical advice. Always consult a licensed provider before making health decisions.</p>
+
+  <h2>3. Prescription Services</h2>
+  <p>All prescriptions are subject to pharmacist approval and applicable law. We may refuse or modify requests based on inventory, insurance, or compliance.</p>
+
+  <h2>4. Product Availability & Pricing</h2>
+  <p>Prices and availability may vary by location. We make no guarantees about real-time accuracy.</p>
+
+  <h2>5. Account Registration</h2>
+  <p>You are responsible for maintaining the confidentiality of your login details. All activity under your account is your responsibility.</p>
+
+  <h2>6. Communications</h2>
+  <p>By providing your contact info, you consent to receive calls, emails, or texts related to your prescriptions or pharmacy care. Text STOP to unsubscribe.</p>
+
+  <h2>7. Privacy</h2>
+  <p>We respect your privacy. All personal data is protected by HIPAA and handled in accordance with our <a href="#">Privacy Policy</a>.</p>
+
+  <h2>8. Intellectual Property</h2>
+  <p>All content on GeorgiesRx.com is the property of Georgies Pharmacy. Unauthorized reproduction is prohibited.</p>
+
+  <h2>9. Third-Party Links</h2>
+  <p>We may link to external sites. Georgies is not responsible for the content or practices of third-party websites.</p>
+
+  <h2>10. Limitation of Liability</h2>
+  <p>We are not liable for damages arising from your use of the site, including service outages, data loss, or technical errors.</p>
+
+  <h2>11. Indemnification</h2>
+  <p>You agree to indemnify Georgies Pharmacy for any damages arising from your misuse of the website or violation of these Terms.</p>
+
+  <h2>12. Arbitration and Dispute Resolution</h2>
+  <p>Any dispute shall be resolved through binding individual arbitration in New Jersey. You waive your right to a jury trial or class action.</p>
+
+  <h2>13. Termination</h2>
+  <p>We may terminate or restrict access at any time. Certain provisions, such as indemnification and arbitration, will survive termination.</p>
+
+  <h2>14. Changes to Terms</h2>
+  <p>We may update these Terms from time to time. Continued use of the site constitutes acceptance of the revised Terms.</p>
+
+  <h2>15. Contact Information</h2>
+  <ul>
+    <li>Georgies Family Pharmacy: admin@stgeorgesrx.com | (908) 925-4567</li>
+    <li>Georgies Specialty Pharmacy: specialty@stgeorgesrx.com | (908) 925-4566</li>
+    <li>Georgies Parlin Pharmacy: parlinrx@gmail.com | (732) 952-3022</li>
+    <li>Georgies Outpatient Pharmacy: pharmacy@georgiesrx.com | (609) 726-5800</li>
+  </ul>
+
+</body>
+</html>

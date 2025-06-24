@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgies Pharmacy Locations Map</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #800020, #5c001a);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .locations-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .location-summary-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-left: 4px solid #800020;
+        }
+
+        .location-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #800020;
+            margin-bottom: 8px;
+        }
+
+        .location-address {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .location-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .location-phone a {
+            color: #800020;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .location-phone a:hover {
+            text-decoration: underline;
+        }
+
+        .directions-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #800020;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .directions-btn:hover {
+            background: #5c001a;
+            transform: translateY(-1px);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            display: inline-block;
+            padding: 12px 24px;
+            background: transparent;
+            color: #800020;
+            border: 2px solid #800020;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background: #800020;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .map-frame {
+                height: 400px;
+            }
+            
+            .locations-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Find Your Nearest Georgies Pharmacy</h1>
+            <p>All locations pinned on the map for your convenience</p>
+        </div>
+
+        <div class="map-container">
+            <div class="map-frame" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center; border: 2px dashed #800020; border-radius: 8px;">
+                <div style="text-align: center; padding: 40px;">
+                    <h3 style="color: #800020; margin-bottom: 15px;">Interactive Map View</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Click the button below to open an interactive map with all Georgies Pharmacy locations</p>
+                    <a href="https://www.google.com/maps/search/pharmacy+near+Linden,+NJ/@40.6221,-74.2448,12z" 
+                       target="_blank" 
+                       style="display: inline-block; padding: 12px 24px; background: #800020; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                        Open Full Map View
+                    </a>
+                </div>
+            </div>
+            <div style="margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+                <p style="margin: 0; color: #666; font-size: 0.95rem;">
+                    <strong>Find Your Nearest Location:</strong> Use the location cards below to get precise directions to each Georgies Pharmacy.
+                </p>
+            </div>
+        </div>
+
+        <div class="locations-summary">
+            <div class="location-summary-card">
+                <div class="location-name">Georgies Family Pharmacy</div>
+                <div class="location-address">
+                    332 W. St. Georges Avenue<br>
+                    Linden, NJ 07036-5638
+                </div>
+                <div class="location-phone">
+                    <span>📞</span>
+                    <a href="tel:+19089254567">(908) 925-4567</a>
+                </div>
+                <a href="https://maps.google.com/?q=332+W.+St.+Georges+Avenue,+Linden,+NJ+07036" target="_blank" class="directions-btn">Get Directions</a>
+            </div>
+
+            <div class="location-summary-card">
+                <div class="location-name">Georgies Specialty Pharmacy</div>
+                <div class="location-address">
+                    521 N Wood Avenue<br>
+                    Linden, NJ 07036-4146
+                </div>
+                <div class="location-phone">
+                    <span>📞</span>
+                    <a href="tel:+19089254566">(908) 925-4566</a>
+                </div>
+                <a href="https://maps.google.com/?q=521+N+Wood+Avenue,+Linden,+NJ+07036" target="_blank" class="directions-btn">Get Directions</a>
+            </div>
+
+            <div class="location-summary-card">
+                <div class="location-name">Georgies Parlin Pharmacy</div>
+                <div class="location-address">
+                    499 Ernston Road<br>
+                    Parlin, NJ 08859-1406
+                </div>
+                <div class="location-phone">
+                    <span>📞</span>
+                    <a href="tel:+17329523022">(732) 952-3022</a>
+                </div>
+                <a href="https://maps.google.com/?q=499+Ernston+Road,+Parlin,+NJ+08859" target="_blank" class="directions-btn">Get Directions</a>
+            </div>
+
+            <div class="location-summary-card">
+                <div class="location-name">Georgies Outpatient Pharmacy</div>
+                <div class="location-address">
+                    6 Earlin Drive, Suite 130<br>
+                    Browns Mills, NJ 08015-1768
+                </div>
+                <div class="location-phone">
+                    <span>📞</span>
+                    <a href="tel:+16097265800">(609) 726-5800</a>
+                </div>
+                <a href="https://maps.google.com/?q=6+Earlin+Drive,+Suite+130,+Browns+Mills,+NJ+08015" target="_blank" class="directions-btn">Get Directions</a>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="javascript:history.back()">← Back to Locations</a>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Add functionality to highlight locations when hovering over cards
+        document.querySelectorAll('.location-summary-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 12px 40px rgba(128, 0, 32, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)';
+            });
+        });
+    </script>
+</body>
+</html>

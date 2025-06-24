@@ -1,0 +1,16 @@
+export type {
+  User,
+  UpsertUser,
+  Patient,
+  Prescription,
+  RefillRequest,
+  TransferRequest,
+  ChatMessage,
+  PharmacyLocation,
+  InsertPatient,
+  InsertPrescription,
+  InsertRefillRequest,
+  InsertTransferRequest,
+  InsertChatMessage,
+  InsertPharmacyLocation,
+} from "@shared/schema";
